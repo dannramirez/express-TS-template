@@ -7,7 +7,7 @@ afterAll(() => {
 });
 
 describe('Test endpoint responses', () => {
-  it('gets the / endpoint', async () => {
+  it('gets the / endpoint', async (done: DoneFn) => {
     const response = await request.get('/api');
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
@@ -21,5 +21,6 @@ describe('Test endpoint responses', () => {
         },
       ],
     });
+    done();
   });
 });
